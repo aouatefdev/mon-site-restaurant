@@ -1,0 +1,291 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %} {% endblock %} 
+
+
+{% block body %}
+
+<header class="fix">
+    <a href="#" class="logo"><span>R</span>est<img src="{{ asset('assets/photos/logo.png') }}" alt="logo"><span>
+            D</span>élic<span>e</span></a>
+    <div class="menuToggle" onclick="toggleMenu();">
+        <ul class="navbar">
+            <li><a href="#banniere" onclick="toggleMenu();">Accueil</a></li>
+            <li><a href="#apropos" onclick="toggleMenu();">A propos</a></li>
+            <li><a href="#menu" onclick="toggleMenu();">Nos Plats</a></li>
+            <li><a href="#temoignage" onclick="toggleMenu();">Temoignage</a></li>
+            <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
+        </ul>
+    </div>
+
+       
+    <i class="bi bi-cart fs-2 mt-2 position-relative">
+    {% for plat in plats %} 
+  
+    <a href="{{path('home_plats_add',{id:plat.id})}}" class=" fs-6  home text-decoration-none position-absolute">{{totalQtt}}</a> 
+    
+    {% endfor %}
+    </i><a href="{{path('panier_index')}}">Voir panier</a>
+  
+    
+     
+    
+    
+     
+</header>
+<section class="banniere" id="banniere">
+    <div class="contenu">
+        <h2>Que Des Plats Délicieux</h2>
+        <a href="#" class="btn1">Notre Menu</a>
+        <a href="#" class="btn2">Reservation</a>
+    </div>
+</section>
+
+<section class="apropos" id="apropos">
+    <div class="flex">
+        <div class="insideLeft">
+            <h2 class="titre-texte"><span>A</span> Propos De Nous</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                utlabore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo
+                consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus quae illo ea molestiae
+                blanditiis eius magni, rem libero id consequatur quis inventore Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Eaque necessitatibus amet non numquam, magni quasi a quia dicta
+                excepturi quis eos dolore obcaecati labore facilis, nemo harum ab nostrum quod.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit, Maiores, fugit vel Doloribus
+                similique.
+            </p>
+        </div>
+        <div>
+            <img src="{{asset('assets/photos/plat3.jpg')}}" alt="image">
+        </div>
+    </div>
+</section>
+
+
+<div class="titre blanc" id="temoignage">
+    <h2 class="titre-texte"><span>Q</span>ue <span>D</span>isent <span>N</span>os <span>C</span>lients</h2>
+</div>
+<section class="temoignage">
+    <div class="contenu">
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/t1.jpeg') }}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem
+                    ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <h3>Franck leroi</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/t2.jpg') }}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem
+                    ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <h3>Franck leroi</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/t3.jpg') }}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem
+                    ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <h3>Franck leroi</h3>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/t4.jpg') }}" alt="">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem
+                    ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <h3>Franck leroi</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="titreMenu">
+        <h2 class="titre-texte"><span>N</span>os <span>P</span>lats</h2>
+    </div>
+
+    <div class="contenu">
+
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c1.jpg')}}" alt="plat grillade">
+            </div>
+            <div class="prix">
+                <p>Plat grillade composé de crevettes, poulets ou viande rouge selon votre choix. Plat élaboré avec des produits locaux de qualités.</p>
+
+                <p class="text-center"><span>prix: 25€ TTC</span></p>
+  
+                <p class="text-end">    
+                <a href="{{path("home_plats_add",{id:1})}}" class="btn btn-success mt-2 ">
+                    <i class="bi bi-cart-plus"></i> Ajouter
+                </a>
+                </p>
+           
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c2.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Plat salade de fruits composé de plusieurs fruits à votre choix avec des morceaux de fromage
+                    mozzarella fait maison.
+                    Fruits locaux de qualités.</p>
+                <p class="text-center"><span>prix: 10€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path("home_plats_add",{id:2})}}" class="btn btn-success mt-2 ">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c3.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Plat végetarien composé de hamburger à base de céreales et divers légummes frittes avec huile
+                    d'olive.<br> Produits locaux de qualités.
+                </p>
+                <p class="text-center"><span>prix: 12€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path('home_plats_add', {id:3})}}" class="btn btn-success mt-2 ">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c4.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Plat sushi composé de crevettes, poulets, saumon, riz de qualités enrobées avec des algues traités
+                    par des spécialistes.
+                </p>
+                <p class="text-center"><span>prix: 25€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path('home_plats_add', {id:4})}}" class="btn btn-success mt-2 ">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p>
+            </div>
+        </div>
+    <div class="box">
+            <div class="imbox">
+                <img src="{{asset('assets/photos/c5.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Plat poisson avec légumes cuites composés de mais, tomates, courgettes, chouxfleurs dans une sauce
+                    verte au Basilic.
+                </p>
+                <p class="text-center"><span>prix: 15€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path('home_plats_add', {id:5})}}" class="btn btn-success mt-2 ">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c6.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Crème brûlée, Notre Désserts préférés, fait parties de notre spécialités fait maison, avec fruits
+                    saisonnières de notre région.
+                </p>
+                <p class="text-center"><span>prix: 8€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path('home_plats_add', {id:6})}}" class="btn btn-success mt-2 ">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c7.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Plat pâte de poissons, mélangés avec des champignons de notre régions et mayonnaise de qualité.
+                    Plat de notre spécialité maison.
+                </p>
+                <p class="text-center"><span>prix: 20€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path('home_plats_add', {id:7})}}" class="btn btn-success mt-2 ">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imbox">
+                <img src="{{ asset('assets/photos/c8.jpg') }}" alt="">
+            </div>
+            <div class="prix">
+                <p> Spéciale Noel, Dinde rôtie complet, élevées dans la nature, avec sauce jaune au curcuma, divers
+                    légumes de votre choix.
+                </p>
+                <p class="text-center"><span>prix: 30€ TTC</span></p>
+                <p class="text-end">
+                    <a href="{{path('home_plats_add', {id:8})}}" class="btn btn-success mt-2 ">
+                    <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </p> #}
+            </div>
+        </div>
+    </div>
+    <div class="titre">
+        <a href="#" class="btn1">Voir Plus</a>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="titre noir">
+        <h2 class="titre-text"><span>C</span>ontact</h2>
+    </div>
+    <div class="contactform">
+        <h3>Envoyer un message</h3>
+        <div class="inputboite">
+            <input type="text" placeholder="Nom">
+        </div>
+        <div class="inputboite">
+            <input type="text" placeholder="email">
+        </div>
+        <div class="inputboite">
+            <textarea placeholder="message"></textarea>
+        </div>
+        <div class="inputboite">
+            <input type="submit" value="envoyer">
+        </div>
+    </div>
+</section>
+<div class="copyright">
+    <p>copyright 2021 - <a href="#">Aouatef Mechemeche</a> - Tous droits reservé</p>
+</div>
+
+{% endblock %}
